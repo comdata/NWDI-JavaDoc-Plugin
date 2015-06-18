@@ -41,6 +41,17 @@ public class JavaDocBuilder extends AntTaskBuilder {
 
     private boolean useUmlGraph;
 
+    // Fields in config.jelly must match the parameter names in the
+    // "DataBoundConstructor"
+    @DataBoundConstructor
+    public JavaDocBuilder(final Collection<String> links, final boolean useUmlGraph) {
+        setLinks(links);
+        this.useUmlGraph = useUmlGraph;
+    }
+
+    public JavaDocBuilder() {
+    }
+    
     /**
      * @return the useUmlGraph
      */
@@ -75,16 +86,6 @@ public class JavaDocBuilder extends AntTaskBuilder {
         }
     }
 
-    // Fields in config.jelly must match the parameter names in the
-    // "DataBoundConstructor"
-    @DataBoundConstructor
-    public JavaDocBuilder(final Collection<String> links, final boolean useUmlGraph) {
-        setLinks(links);
-        this.useUmlGraph = useUmlGraph;
-    }
-
-    public JavaDocBuilder() {
-    }
 
     /**
      * Generate JavaDoc documentation for the development components modified in
