@@ -107,6 +107,9 @@ public class JavaDocBuilder extends AntTaskBuilder {
 
         try {
             for (final DevelopmentComponent component : nwdiBuild.getAffectedDevelopmentComponents(new DCWithJavaSourceAcceptingFilter())) {
+            	
+            	listener.getLogger().println("NWDI-Javadoc: Processing "+component.getName());
+            	
                 final String location = generator.execute(component);
 
                 if (location != null) {
