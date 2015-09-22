@@ -14,8 +14,8 @@
     <mkdir dir="$javaDocDir/md"/>
     
     <echo file="$javaDocDir/index.html">
-    	<a href="uml/index.html">UML</a><br />
-    	<a href="md/index.html">MD</a>
+    	&lt;a href="uml/index.html"&gt;UML&lt;/a&gt;&lt;br /&gt;
+    	&lt;a href="md/index.html"&gt;MD&lt;/a&gt;
     </echo>
     
     <javadoc author="true" version="true" destdir="$javaDocDir/ul" source="$source"
