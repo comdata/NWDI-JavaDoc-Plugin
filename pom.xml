@@ -38,5 +38,10 @@
       <artifactId>umlgraph</artifactId>
       <version>5.6</version>
     </dependency>
+ 	<dependency>
+      <groupId>ch.raffael.pegdown-doclet</groupId>
+      <artifactId>pegdown-doclet</artifactId>
+      <version>1.1.1</version>
+    </dependency>    
   </dependencies>
 </project>

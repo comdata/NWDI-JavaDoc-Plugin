@@ -47,6 +47,8 @@
         <param name="-outputencoding" value="utf8" />
       </doclet>
 #end
+ 		<doclet name="ch.raffael.doclets.pegdown.PegdownDoclet" path="${umlgraph.dir}/pegdown-doclet-1.1.1-all.jar">
+    	</doclet>
     </javadoc>
 #if($useUmlGraph)
     <apply executable="dot" dest="$javaDocDir" parallel="false">
