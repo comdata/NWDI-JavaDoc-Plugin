@@ -13,12 +13,9 @@
     <mkdir dir="$javaDocDir/uml" />
     <mkdir dir="$javaDocDir/md"/>
     
-    <echo file="$javaDocDir/index.html">
-    	&lt;a href="uml/index.html"&gt;UML&lt;/a&gt;&lt;br /&gt;
-    	&lt;a href="md/index.html"&gt;MD&lt;/a&gt;
-    </echo>
+
     
-    <javadoc author="true" version="true" destdir="$javaDocDir/ul" source="$source"
+    <javadoc author="true" version="true" destdir="$javaDocDir/uml" source="$source"
              additionalparam="$proxy" classpath="$classes" classpathref="classpath-$component"
              encoding="UTF-8" charset="UTF-8" docencoding="UTF-8"
              header="$header">
@@ -48,7 +45,7 @@
 		<param name="-postfixpackage" />
 		<param name="-nodefontsize" value="9" />
 		<param name="-nodefontpackagesize" value="7" />
-        <param name="-d" value="$javaDocDir"/>
+        <param name="-d" value="$javaDocDir/uml"/>
         <param name="-qualify" />
         <param name="-types" />
         <param name="-visibility" />
@@ -85,5 +82,9 @@
       <mapper type="glob" from="*.dot" to="*.svg"/>
     </apply>
 #end     
+    <echo file="$javaDocDir/index.html">
+    	&lt;a href="uml/index.html"&gt;UML&lt;/a&gt;&lt;br /&gt;
+    	&lt;a href="md/index.html"&gt;MD&lt;/a&gt;
+    </echo>
   </target>
 </project>
