@@ -9,8 +9,16 @@
   </path>
 
   <target name="javadoc">
-    <mkdir dir="$javaDocDir" />
-    <javadoc author="true" version="true" destdir="$javaDocDir" source="$source"
+  	<mkdir dir="$javaDocDir"/>
+    <mkdir dir="$javaDocDir/uml" />
+    <mkdir dir="$javaDocDir/md"/>
+    
+    <echo file="$javaDocDir/index.html">
+    	<a href="uml/index.html">UML</a><br />
+    	<a href="md/index.html">MD</a>
+    </echo>
+    
+    <javadoc author="true" version="true" destdir="$javaDocDir/ul" source="$source"
              additionalparam="$proxy" classpath="$classes" classpathref="classpath-$component"
              encoding="UTF-8" charset="UTF-8" docencoding="UTF-8"
              header="$header">
@@ -47,9 +55,26 @@
         <param name="-outputencoding" value="utf8" />
       </doclet>
 #end
- 		<doclet name="ch.raffael.doclets.pegdown.PegdownDoclet" path="${umlgraph.dir}/pegdown-doclet-1.1.1.jar">
-    	</doclet>
     </javadoc>
+<javadoc author="true" version="true" destdir="$javaDocDir/md" source="$source"
+             additionalparam="$proxy" classpath="$classes" classpathref="classpath-$component"
+             encoding="UTF-8" charset="UTF-8" docencoding="UTF-8"
+             header="$header">
+	#foreach ($source in $sourcePaths)
+      <packageset dir="$source">
+        <include name="**" />
+      </packageset>
+      <fileset dir="$source">
+        <include name="*.java" />
+        <include name="package.html" />
+      </fileset>
+#end
+#foreach ($link in $links)
+      <link href="$link" />
+#end
+ 		<doclet name="ch.raffael.doclets.pegdown.PegdownDoclet" path="${umlgraph.dir}/pegdown-doclet-1.1.1.jar;${umlgraph.dir}/parboiled-core-1.1.7.jar;${umlgraph.dir}/parboiled-java-1.1.4.jar;${umlgraph.dir}/asm-analysis-4.1.jar;${umlgraph.dir}/asm-tree-4.1.jar;${umlgraph.dir}/asm-util-4.1.jar;${umlgraph.dir}/plantuml-7968.jar;${umlgraph.dir}/pegdown-1.2.1.jar;${umlgraph.dir}/guava-13.0.1.jar;${umlgraph.dir}/asm-4.1.jar">
+    	</doclet>
+    </javadoc>    
 #if($useUmlGraph)
     <apply executable="dot" dest="$javaDocDir" parallel="false">
       <arg value="-Tsvg"/>
