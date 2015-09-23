@@ -56,7 +56,7 @@
 <javadoc author="true" version="true" destdir="$javaDocDir/md" source="$source"
              additionalparam="$proxy" classpath="$classes" classpathref="classpath-$component"
              encoding="UTF-8" charset="UTF-8" docencoding="UTF-8"
-             header="$header">
+             header="$header" private="true">
 	#foreach ($source in $sourcePaths)
       <packageset dir="$source">
         <include name="**" />
