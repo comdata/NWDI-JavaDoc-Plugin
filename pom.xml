@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.arachna.netweaver</groupId>
 		<artifactId>NWDI-pom-Plugin</artifactId>
-		<version>1.5</version>
+		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.arachna.netweaver</groupId>
 	<artifactId>NWDI-JavaDoc-Plugin</artifactId>
 	<name>NWDI-JavaDoc-Plugin</name>
-	<version>1.1-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 	<packaging>hpi</packaging>
 	<description>Jenkins plugin for generating JavaDoc documentation for SAP NetWeaver development components.</description>
 	<inceptionYear>2011</inceptionYear>
@@ -66,7 +66,7 @@
 		<dependency>
 			<groupId>org.arachna.netweaver</groupId>
 			<artifactId>NWDI-Core-Plugin</artifactId>
-			<version>1.2</version>
+			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.umlgraph</groupId>
